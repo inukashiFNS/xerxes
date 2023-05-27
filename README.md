@@ -1,2 +1,2 @@
 # xerxes
-An online cybersecurity web forum made using django.
+An online cybersecurity web forum like chat app made using django.
