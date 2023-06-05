@@ -16,7 +16,7 @@ class Room(models.Model):
     #when a topic is deleted we dont want the room to be deleted too, the topic attrrib is just gonns stay null
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    #participants = 
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
