@@ -6,3 +6,4 @@ class RoomForm(ModelForm):
         model = Room
         fields = '__all__'
         #will have all attributes from the room in models.py except the unditables ones
+        exclude = ['host', 'participants']
