@@ -41,10 +41,17 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
 
     'rest_framework',
+
+    "corsheaders", 
+    # for cross-origin resource sharing(cors) headers to response.
+    # This allows in-browser requests to our Django application from other origins.
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    
+    "corsheaders.middleware.CorsMiddleware",
+    # it is the CORS middleware for cross origin api sharing
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,3 +140,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True # all origins can access our website api
