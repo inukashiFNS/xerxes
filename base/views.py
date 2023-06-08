@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 #from django.contrib.auth.models import User
@@ -86,12 +86,30 @@ def room(request, pk):
     room_messages = room.message_set.all()
     # message_set all, gives us all the messages related to that room . possible can message is child of room
     participants = room.participants.all()
+
+    # Handle POST requests
     if request.method == 'POST':
-        message = Message.objects.create(
-            user=request.user, room=room, body=request.POST.get('body')
-        )
-        room.participants.add(request.user)
+        if auth.get_user(request).is_authenticated:
+            message = Message.objects.create(
+                user=request.user,
+                room=room,
+                body=request.POST.get('body')
+            )
+            room.participants.add(request.user)
+        else:
+            return redirect('login')
+
+        # Redirect the user back to the chat room page
         return redirect('room', pk=room.id)
+
+
+    # if request.method == 'POST':
+    #     message = Message.objects.create(
+    #         user=request.user, room=room, body=request.POST.get('body')
+    #     )
+    #     room.participants.add(request.user)
+    #     return redirect('room', pk=room.id)
+    
     context = {
         'room': room,
         'room_messages': room_messages,
