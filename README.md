@@ -14,14 +14,18 @@ virtualenc envname
 '''
 
 ==> Activate the virtual environment:
-'envname\scripts\activate'
+```bash
+
+envname\scripts\activate
+
+```
 
 ==> Install the requirements in the virtual environment:
-'''bash
+```bash
 
 pip install -r requirements.txt
 
-'''
+```
 
 <hr>
 
@@ -29,10 +33,10 @@ pip install -r requirements.txt
 
 ==> To run app we use
 
-'''bash
+```bash
 
 python manage.py runserver
 
-'''
+```
 
 > ⚠ Then, the development server will be started at http://127.0.0.1:8000/
