@@ -5,13 +5,13 @@ An online cybersecurity web forum like chat app made using django.
 ### Creating the run environment
 
 ==> Create a virtual env to run this project:
-'''bash
+```bash
 
 pip install virtualenv
 
 virtualenc envname
 
-'''
+```
 
 ==> Activate the virtual environment:
 ```bash
