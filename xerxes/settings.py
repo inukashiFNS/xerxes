@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+#for exporting databse diagram erd from django
+# import os
+# os.environ["PATH"]=''
+# os.environ["PATH"] += os.pathsep + 'give bin path inside environment of grahviz'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,6 +50,9 @@ INSTALLED_APPS = [
     "corsheaders", 
     # for cross-origin resource sharing(cors) headers to response.
     # This allows in-browser requests to our Django application from other origins.
+
+    #for exporting database diagram erd from django
+    #"django_extensions"
 ]
 
 AUTH_USER_MODEL = 'base.User'   # the custom user model
@@ -147,3 +155,9 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True # all origins can access our website api
+
+#for exporting databse diagram erd from django
+# GRAPH_MODELS ={
+# 'all_applications': True,
+# 'graph_models': True,
+# }
